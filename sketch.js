@@ -1,25 +1,15 @@
-//var song
 var mic
 var fft
-var vid = document.getElementById("bgvid");
 let rotation
-//let animation
-
-function preload() {
-  song = loadSound('improv34.mp3')
-}
 
 function setup() {
   var myCanvas = createCanvas(windowWidth, windowHeight, WEBGL)
-  myCanvas.parent("fundo")
   angleMode(DEGREES)
   mic = new p5.AudioIn()
   mic.start()
   fft = new p5.FFT()
   fft.setInput(mic)
   rotation = 90
-  //animation = createVideo(['animation.f248.webm'])
-  //animation.hide()
 }
 
 function draw() {
@@ -27,9 +17,6 @@ function draw() {
   stroke('#FF1818')
   strokeWeight(3)
   noFill()
-
-  //image(animation, 0, 0)
-  //filter(GRAY)
 
   var wave = fft.waveform()
 
@@ -73,18 +60,3 @@ function draw() {
   if (rotation >= 360)
     rotation = 0
 }
-
-/*
-function mouseClicked() {
-  //animation.loop()
-  if (song.isPlaying()) {
-    song.pause()
-    noLoop()
-    vid.pause()
-  } else {
-    song.play()
-    loop()
-    vid.play()
-  }
-}
-*/
